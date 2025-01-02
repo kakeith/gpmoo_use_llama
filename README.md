@@ -28,6 +28,31 @@ pip install llama-stack
 ```
 llama model list
 llama model download --source meta --model-id  Llama3.3-70B-Instruct
+llama model download --source meta --model-id  Llama3.2-3B-Instruct
+llama model download --source meta --model-id  Llama3.1-405B-Instruct
+```
+
+Then move them to the `shared_llms` folder
+
+```
+sudo mv /shared/kkeith/.llama/checkpoints/Llama3.3-70B-Instruct/ ./
+sudo mv /shared/kkeith/.llama/checkpoints/Llama3.2-3B-Instruct/ ./
+```
+
+### Converting to HuggingFace usable format
+
+Downloaded `https://github.com/huggingface/transformers/blob/main/src/transformers/models/llama/convert_llama_weights_to_hf.py`
+
+Then ran
+
+```
+conda activate llama_env
+pip install torch numpy transformers
+pip install 'accelerate>=0.26.0'
+```
+
+```
+python convert_llama_weights_to_hf.py --input_dir Llama3.3-70B-Instruct --model_size 70B --output_dir hf-Llama3.3-70B-Instruct --llama_version 3
 ```
 
 ## Using Llama after downloading
