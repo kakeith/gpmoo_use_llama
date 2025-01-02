@@ -56,3 +56,10 @@ python convert_llama_weights_to_hf.py --input_dir Llama3.3-70B-Instruct --model_
 ```
 
 ## Using Llama after downloading
+
+Here are some examples of getting the output embeddings or using Llama for generative classification. 
+
+Using a Jupyter Notebook, run 
+```
+using_llama_locally.ipynb
+```
